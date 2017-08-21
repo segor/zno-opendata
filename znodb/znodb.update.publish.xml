@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseName>znodb</TargetDatabaseName>
+    <DeployScriptFileName>znodb.sql</DeployScriptFileName>
+    <TargetConnectionString>Data Source=.\sqlexpress;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
+    <BlockOnPossibleDataLoss>True</BlockOnPossibleDataLoss>
+    <CreateNewDatabase>False</CreateNewDatabase>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+  </PropertyGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="CsvFilesDir">
+      <Value>C:\Users\segor\documents\visual studio 2017\Projects\zno-opendata\znodb\Data</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DO_NOT_IMPORT_CSV">
+      <Value>True</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="c900329a-dd35-4f1e-832e-46f5c182ee17" ChangeDateTime="08/15/2017 18:35:23">
+    <Property Name="ElementName" Value="[dbo].[Table1].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Table1]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id[EOHash]         VARBINARY (20) NOT NULL," />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4c87a877-4a5a-4cc7-b7c7-505b6a45c9f4" ChangeDateTime="08/15/2017 18:40:24">
+    <Property Name="ElementName" Value="[dbo].[AK_Config_RenamedScholsMergingTable_Column]" />
+    <Property Name="ElementType" Value="SqlUniqueConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[Config_RenamedScholsMergingTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[AK_Config_RenamedScholsMergingTable]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f96b6cb3-e7fa-4569-bea0-3e4a0f75aa2f" ChangeDateTime="08/15/2017 18:40:42">
+    <Property Name="ElementName" Value="[dbo].[Config_RenamedScholsMergingTable].[EOHashPrev]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Config_RenamedScholsMergingTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EOHashPrevYear" />
+  </Operation>
+</Operations>
