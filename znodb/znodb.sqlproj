@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>znodb</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{9b34aa00-064c-4e10-bda6-90b30e365caf}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>znodb</RootNamespace>
+    <AssemblyName>znodb</AssemblyName>
+    <ModelCollation>1049,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>Cyrillic_General_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <Recovery>SIMPLE</Recovery>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunSqlCodeAnalysis>True</RunSqlCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="zno2017" />
+    <Folder Include="zno2016" />
+    <Folder Include="zno2017\Tables" />
+    <Folder Include="zno2016\Tables" />
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\import" />
+    <Folder Include="Scripts\Views" />
+    <Folder Include="Scripts\Tables" />
+    <Folder Include="Data" />
+    <Folder Include="Scripts\Config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Data_Parsed.sql" />
+    <Build Include="dbo\Tables\PersonScores.sql" />
+    <Build Include="dbo\Views\Scores.sql" />
+    <Build Include="dbo\Views\Config_EOTypesForRating.sql" />
+    <Build Include="dbo\Views\EOTypes.sql" />
+    <Build Include="dbo\Functions\clean_num.sql" />
+    <Build Include="dbo\Functions\clean_str.sql" />
+    <Build Include="dbo\Functions\get_eo_hash.sql" />
+    <Build Include="dbo\Functions\get_score.sql" />
+    <Build Include="zno2017\zno2017.sql" />
+    <Build Include="zno2017\Tables\zno2017.Data_csv.sql" />
+    <Build Include="zno2016\zno2016.sql" />
+    <Build Include="zno2016\Tables\zno2016.Data_csv.sql" />
+    <Build Include="dbo\Views\Config_ValidExamStatuses.sql" />
+    <None Include="Scripts\import\import.2017.sql" />
+    <None Include="Scripts\Views\AgeScores.sql" />
+    <None Include="Scripts\Views\EOTypeScores.sql" />
+    <None Include="Scripts\Views\PersonScores.sql" />
+    <None Include="Scripts\Views\PersonScoresWithAvg.sql" />
+    <None Include="Scripts\Views\SchoolRating.sql" />
+    <None Include="Scripts\Views\SchoolScores.sql" />
+    <None Include="Scripts\Views\SchoolScoresTotal.sql" />
+    <None Include="Scripts\Views\SchoolSubjScores.sql" />
+    <None Include="Scripts\Views\SchoolsWithBestPeople.sql" />
+    <None Include="Scripts\Views\Scores.sql" />
+    <None Include="Scripts\Views\SexTypeScores.sql" />
+    <None Include="Scripts\Views\StudentRaitingTop1000.sql" />
+    <None Include="Scripts\Views\SubjectSexTypeScores.sql" />
+    <None Include="Scripts\Views\TerTypeScores.sql" />
+    <None Include="Scripts\Tables\Schools.sql" />
+    <None Include="Scripts\import\fill_Data_Parsed.2016.sql" />
+    <None Include="Scripts\import\import.2016.sql" />
+    <None Include="Scripts\Script.AlterDbFiles.sql" />
+    <Build Include="dbo\Functions\clean_EOName.sql" />
+    <Build Include="dbo\Tables\Config_EONamesMergingTable.sql" />
+    <None Include="Scripts\Views\Config_RenamedSchoolThatShouldBeMerged.sql" />
+    <Build Include="dbo\Functions\wmAvg.sql" />
+    <Build Include="dbo\Functions\canBeInSchoolRating.sql" />
+    <Build Include="dbo\Functions\canBeInSubjectRating.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="znodb.recreate.publish.xml" />
+    <None Include="Scripts\Script.CreateCommonStructure.sql" />
+    <None Include="Scripts\import\import_csv.sql" />
+    <None Include="Scripts\import\fill_PersonScores.sql" />
+    <None Include="Scripts\import\fill_Data_Parsed.2017.sql" />
+    <None Include="Scripts\import\fill_Schools.sql" />
+    <None Include="Scripts\import\resolve_duplicated_schools.sql" />
+    <None Include="Scripts\import\fill_helper_tables.sql" />
+    <None Include="Scripts\Views\SchoolRating_Composite.sql" />
+    <None Include="Data\OpenDataZNO2016.7z" />
+    <None Include="Data\OpenDataZNO2017.7z" />
+    <None Include="Data\7za.exe" />
+    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.sql" />
+    <None Include="znodb.update.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="CsvFilesDir">
+      <DefaultValue>$(MSBuildProjectDirectory)\Data</DefaultValue>
+      <Value>$(SqlCmdVar__1)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DO_NOT_IMPORT_CSV">
+      <DefaultValue>False</DefaultValue>
+      <Value>$(SqlCmdVar__2)</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="znodb.refactorlog" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PostBuildEvent>"$(ProjectDir)Data\7za.exe" e -aos  -bd -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2016.7z"
+"$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2017.7z"
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>
