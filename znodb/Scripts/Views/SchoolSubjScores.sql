@@ -7,67 +7,91 @@ SELECT
 	A.[EOHash]
 	,[Examinees]
 	,[UkrAvg]
+	,[UkrStDev]
 	,[UkrMed]
 	,[UkrN]
 	,[HistAvg]
+	,[HistStDev]
 	,[HistMed]
 	,[HistN]
 	,[MathAvg]
+	,[MathStDev]
 	,[MathMed]
 	,[MathN]
 	,[PhysAvg]
+	,[PhysStDev]
 	,[PhysMed]
 	,[PhysN]
 	,[ChemAvg]
+	,[ChemStDev]
 	,[ChemMed]
 	,[ChemN]
 	,[BioAvg]
+	,[BioStDev]
 	,[BioMed]
 	,[BioN]
 	,[GeoAvg]
+	,[GeoStDev]
 	,[GeoMed]
 	,[GeoN]
 	,[EngAvg]
+	,[EngStDev]
 	,[EngMed]
 	,[EngN]
 	,[FrAvg]
+	,[FrStDev]
 	,[FrMed]
 	,[FrN]
 	,[DeuAvg]
+	,[DeuStDev]
 	,[DeuMed]
 	,[DeuN]
 	,[SpAvg]
+	,[SpStDev]
 	,[SpMed]
 	,[SpN]
 	,[RusAvg]
+	,[RusStDev]
 	,[RusMed]
 	,[RusN]
 FROM
 	(SELECT EOHash
 	, COUNT(DISTINCT OutID) As Examinees
 	, AVG(Ukr) AS UkrAvg
+	, STDEV(Ukr) AS UkrStDev
 	, COUNT(Ukr) AS UkrN
 	, AVG(Hist) AS HistAvg
+	, STDEV(Hist) AS HistStDev
 	, COUNT(Hist) AS HistN
 	, AVG(Math) AS MathAvg
+	, STDEV(Math) AS MathStDev
 	, COUNT(Math) AS MathN
 	, AVG(Phys) AS PhysAvg
+	, STDEV(Phys) AS PhysStDev
 	, COUNT(Phys) AS PhysN
 	, AVG(Chem) AS ChemAvg
+	, STDEV(Chem) AS ChemStDev
 	, COUNT(Chem) AS ChemN
 	, AVG(Bio) AS BioAvg
+	, STDEV(Bio) AS BioStDev
 	, COUNT(Bio) AS BioN
 	, AVG(Geo) AS GeoAvg
+	, STDEV(Geo) AS GeoStDev
 	, COUNT(Geo) AS GeoN
 	, AVG(Eng) AS EngAvg
+	, STDEV(Eng) AS EngStDev
 	, COUNT(Eng) AS EngN
 	, AVG(Fr) AS FrAvg
+	, STDEV(Fr) AS FrStDev
 	, COUNT(Fr) AS FrN
 	, AVG(Deu) AS DeuAvg
+	, STDEV(Deu) AS DeuStDev
 	, COUNT(Deu) AS DeuN
 	, AVG(Sp) AS SpAvg
+	, STDEV(Sp) AS SpStDev
 	, COUNT(Sp) AS SpN
 	, AVG(Rus) AS RusAvg
+	, STDEV(Rus) AS RusStDev
 	, COUNT(Rus) AS RusN
 	FROM            [zno$(ZnoYear)].PersonScores
 	GROUP BY EOHash) AS A
