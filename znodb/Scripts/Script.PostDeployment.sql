@@ -40,7 +40,7 @@ SET NOCOUNT ON
 SET NOCOUNT OFF
 GO
 
-PRINT N'Saving composite schools rating to a table...'
+PRINT N'Saving composite schools rating into a table...'
 DROP TABLE IF EXISTS [zno$(ZnoYear)].[SchoolRating_Composite_Table]
 GO
 SELECT * INTO [zno$(ZnoYear)].[SchoolRating_Composite_Table]

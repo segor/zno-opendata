@@ -3,12 +3,13 @@ GO
 
 CREATE VIEW [zno$(ZnoYear)].[SchoolScores] AS
 SELECT 
-	[A].[EOHash], [A].[AvgScore], [A].[Exams], [A].[FailedExams], [A].[PassRate], M.MedScore 
+	[A].[EOHash], [A].[AvgScore], [A].[Exams], [A].[FailedExams], [A].[PassRate], M.MedScore, A.StdDevScore
 FROM
 	(SELECT  EOHash    
 			  ,AVG([Score]) AvgScore
+			  ,STDEV([Score]) AS StdDevScore
 			  ,COUNT([Score]) AS Exams
-			  ,SUM([IsFailed]) FailedExams
+			  ,SUM([IsFailed]) FailedExams			  
 			  , 1 - 1.0 * SUM([IsFailed])/ COUNT([Score])  AS PassRate
 		  FROM [zno$(ZnoYear)].[Scores]	  
 		  GROUP BY EOHash) AS A
