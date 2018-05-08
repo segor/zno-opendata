@@ -4,6 +4,9 @@ GO
 :r .\fill_Schools.sql
 GO
 
+:r ..\Views\SchoolScoresTotal.sql
+GO
+
 /*
 PRINT N'ZNO-$(ZnoYear): Testing schools rating...'
 GO

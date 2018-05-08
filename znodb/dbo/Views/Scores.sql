@@ -8,7 +8,7 @@ CREATE VIEW [dbo].[Scores] AS
     ,[EOHash]      
 	,[Subj],
 	[Score],
-	CASE WHEN [Score] < 100.0 THEN 1 ELSE 0 END AS IsFailed
+	CAST (CASE WHEN [Score] < 100.0 THEN 1 ELSE 0 END AS bit) AS IsFailed
 FROM 
    (SELECT *   FROM [dbo].[PersonScores]) p
 	UNPIVOT

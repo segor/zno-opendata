@@ -3,7 +3,7 @@
 	[OutID]       NVARCHAR (200) NOT NULL,
     [SexTypeName] NVARCHAR (500) NULL,
     [Age]         INT            NULL,
-    [EOHash]      VARBINARY (20) NULL,
+    [EOHash]      VARBINARY (20) NOT NULL,
     [Ukr]         DECIMAL (4, 1) NULL,
     [Hist]        DECIMAL (4, 1) NULL,
     [Math]        DECIMAL (4, 1) NULL,
@@ -15,7 +15,13 @@
     [Fr]          DECIMAL (4, 1) NULL,
     [Deu]         DECIMAL (4, 1) NULL,
     [Sp]          DECIMAL (4, 1) NULL,
-    [Rus]         DECIMAL (4, 1) NULL
+    [Rus]         DECIMAL (4, 1) NULL,
+	 CONSTRAINT [PK_PersonScores] PRIMARY KEY CLUSTERED 
+		(
+			[ZnoYear] ASC,
+			[EOHash] ASC,
+			[OutID] ASC
+		)
 );
 
 
