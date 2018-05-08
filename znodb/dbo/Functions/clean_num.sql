@@ -6,6 +6,6 @@ CREATE FUNCTION [dbo].[clean_num]
 RETURNS NVARCHAR(500)
 AS
 BEGIN
-	RETURN CASE WHEN @num <> 'null' THEN REPLACE(@num, ',', '.') END
+	RETURN CASE WHEN @num <> 'null' THEN REPLACE(@num, N',', N'.') END
 END
 

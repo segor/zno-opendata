@@ -1,7 +1,6 @@
-﻿EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[SchoolScoresTotal]')
+﻿EXEC ('DROP TABLE IF EXISTS [zno$(ZnoYear)].[SchoolScoresTotal]')
 GO
 
-CREATE VIEW [zno$(ZnoYear)].[SchoolScoresTotal] AS
 SELECT		  School.AvgScore
 			, School.FailedExams
 			, School.PassRate
@@ -57,6 +56,7 @@ SELECT		  School.AvgScore
 			, [Subj].[RusStDev]
 			, [Subj].[RusMed]
 			, [Subj].[RusN]
+  INTO [zno$(ZnoYear)].[SchoolScoresTotal]
   FROM [zno$(ZnoYear)].[SchoolSubjScores] AS Subj
   INNER JOIN 
 	  [zno$(ZnoYear)].SchoolScores AS School

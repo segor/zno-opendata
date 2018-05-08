@@ -1,4 +1,4 @@
-﻿PRINT N'ZNO-$(ZnoYear): Calculating exam scores...'
+﻿PRINT N'ZNO-$(ZnoYear): Calculating person scores...'
 GO
 
 INSERT INTO [dbo].[PersonScores] 

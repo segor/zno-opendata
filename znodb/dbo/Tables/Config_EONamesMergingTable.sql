@@ -2,5 +2,5 @@
 (
 	[EOHash]         VARBINARY (20) NOT NULL,
     [EOHashPrevYear]     VARBINARY (20) NOT NULL, 
-    CONSTRAINT [AK_Config_EONamesMergingTable_EOHash] UNIQUE ([EOHash])
+    CONSTRAINT [PK_Config_EONamesMergingTable] PRIMARY KEY ([EOHash]) 
 )

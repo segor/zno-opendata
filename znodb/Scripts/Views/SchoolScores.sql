@@ -9,8 +9,8 @@ FROM
 			  ,AVG([Score]) AvgScore
 			  ,STDEV([Score]) AS StdDevScore
 			  ,COUNT([Score]) AS Exams
-			  ,SUM([IsFailed]) FailedExams			  
-			  , 1 - 1.0 * SUM([IsFailed])/ COUNT([Score])  AS PassRate
+			  ,SUM(CAST([IsFailed] AS tinyint)) FailedExams			  
+			  , 1 - 1.0 * SUM(CAST([IsFailed] AS tinyint))/ COUNT([Score])  AS PassRate
 		  FROM [zno$(ZnoYear)].[Scores]	  
 		  GROUP BY EOHash) AS A
 INNER JOIN 
