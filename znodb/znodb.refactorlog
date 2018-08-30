@@ -21,4 +21,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="EOHashPrevYear" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="517165d2-0929-4c05-ba14-121b326f740d" ChangeDateTime="08/20/2018 20:15:14">
+    <Property Name="ElementName" Value="[dbo].[Config_EONamesMergingTable].[IX_Config_EONamesMergingTable_Column]" />
+    <Property Name="ElementType" Value="SqlIndex" />
+    <Property Name="ParentElementName" Value="[dbo].[Config_EONamesMergingTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[IX_Config_EONamesMergingTable_EOHash]" />
+  </Operation>
 </Operations>

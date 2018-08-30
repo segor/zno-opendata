@@ -1,4 +1,4 @@
-﻿-- Add area name to name of duplicated school names. Duplicated schools are schools the have the same name and are located in the same region.
+﻿-- Add area name to name of duplicated school names. Duplicated schools are schools that have the same name and are located in the same region.
 -- It will hepl later to identify schools from different ZNO years.
 
 PRINT N'ZNO-$(ZnoYear): Resolving duplicated school names...'

@@ -87,10 +87,12 @@ SELECT TOP 1000000
 	  ,[TerType]
 	  ,[IsPrivate]
 	  ,[EOHash]
+	  ,[EOHash_Merge]
 FROM (
 SELECT   
 	   T.*
 	  ,( [MathAvg] + [PhysAvg] + [EngAvg] ) / 3.0 AS IT_AvgScore
+	  ,[EOHash_Merge]
 	  ,[EOName]
 	  ,[EOAreaFullName]
 	  ,[EOTypeName]
