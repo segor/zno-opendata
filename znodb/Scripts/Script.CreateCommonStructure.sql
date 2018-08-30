@@ -1,6 +1,5 @@
-﻿:r Tables\Schools.sql
+﻿:r Views\Schools.sql
 GO
-
 :r Views\PersonScores.sql
 GO
 :r Views\Scores.sql

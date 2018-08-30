@@ -75,6 +75,8 @@
     <Folder Include="Scripts\Tables" />
     <Folder Include="Data" />
     <Folder Include="Scripts\Config" />
+    <Folder Include="zno2018" />
+    <Folder Include="zno2018\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Data_Parsed.sql" />
@@ -106,16 +108,29 @@
     <None Include="Scripts\Views\StudentRaitingTop1000.sql" />
     <None Include="Scripts\Views\SubjectSexTypeScores.sql" />
     <None Include="Scripts\Views\TerTypeScores.sql" />
-    <None Include="Scripts\Tables\Schools.sql" />
     <None Include="Scripts\import\fill_Data_Parsed.2016.sql" />
     <None Include="Scripts\import\import.2016.sql" />
     <None Include="Scripts\Script.AlterDbFiles.sql" />
     <Build Include="dbo\Functions\clean_EOName.sql" />
     <Build Include="dbo\Tables\Config_EONamesMergingTable.sql" />
-    <None Include="Scripts\Views\Config_RenamedSchoolThatShouldBeMerged.sql" />
+    <None Include="Scripts\Views\Config_RenamedSchoolThatShouldBeMergedTo.sql" />
     <Build Include="dbo\Functions\wmAvg.sql" />
     <Build Include="dbo\Functions\canBeInSchoolRating.sql" />
     <Build Include="dbo\Functions\canBeInSubjectRating.sql" />
+    <None Include="Scripts\import\fill_Data_Parsed.2018.sql" />
+    <None Include="Scripts\import\import.2018.sql" />
+    <Build Include="zno2018\Tables\zno2018.Data_csv.sql" />
+    <Build Include="zno2018\zno2018.sql" />
+    <None Include="Scripts\Views\SchoolRating_Composite_3Y.sql" />
+    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.2018.sql" />
+    <Build Include="dbo\Tables\Config_EONamesMergedTable.sql" />
+    <None Include="Scripts\Views\Config_RenamedSchoolThatShouldBeMergedFrom.sql" />
+    <Build Include="dbo\Tables\Schools_Composite.sql" />
+    <None Include="Scripts\Tables\SchoolRating_Composite_3Y_Table.sql" />
+    <None Include="Scripts\Tables\SchoolRating_Composite_Table.sql" />
+    <Build Include="dbo\Tables\Schools.sql" />
+    <None Include="Scripts\Views\Schools.sql" />
+    <Build Include="dbo\Views\Schools_Merged.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="znodb.recreate.publish.xml" />
@@ -130,8 +145,10 @@
     <None Include="Data\OpenDataZNO2016.7z" />
     <None Include="Data\OpenDataZNO2017.7z" />
     <None Include="Data\7za.exe" />
-    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.sql" />
+    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.2017.sql" />
     <None Include="znodb.update.publish.xml" />
+    <None Include="Data\OpenDataZNO2018.7z" />
+    <None Include="Scripts\Views\Config_RenamedSchoolThatCanBeMergedHint.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
@@ -152,6 +169,7 @@
   <PropertyGroup>
     <PostBuildEvent>"$(ProjectDir)Data\7za.exe" e -aos  -bd -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2016.7z"
 "$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2017.7z"
+"$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2018.7z"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -40,6 +40,7 @@ WHERE
 			INTERSECT 
 			(SELECT TestStatus FROM [dbo].[Config_ValidExamStatuses] ) 
 		)
-		AND RegTypeName = N'Випускник загальноосвітнього навчального закладу $(ZnoYear) року'
+		AND ( RegTypeName = N'Випускник загальноосвітнього навчального закладу $(ZnoYear) року'
+			  OR  RegTypeName = N'Випускник закладу загальної середньої освіти $(ZnoYear) року')
 
 GO
