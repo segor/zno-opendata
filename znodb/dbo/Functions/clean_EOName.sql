@@ -5,7 +5,7 @@
 RETURNS NVARCHAR(500)
 AS
 BEGIN
-	RETURN REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
+	RETURN REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
 				@EOName
 				, N'  ', N' ') 				
 				, N'навчально - виховн', N'навчально-виховн') 				
@@ -15,6 +15,7 @@ BEGIN
 				, N'спеціалізована школа', N'СШ')
 				, N'загальноосвітня школа', N'ЗОШ')
 				, N'загальноосвітній навчальний заклад', N'ЗОНЗ')
+				, N'заклад загальної середньої освіти', N'ЗЗСО')
 				, N'дошкільний навчальний заклад', N'ДНЗ')
 				, N'комунальний навчальний заклад', N'КНЗ')
 				, N'комунальний заклад', N'КЗ')

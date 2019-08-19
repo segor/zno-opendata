@@ -77,6 +77,8 @@
     <Folder Include="Scripts\Config" />
     <Folder Include="zno2018" />
     <Folder Include="zno2018\Tables" />
+    <Folder Include="zno2019" />
+    <Folder Include="zno2019\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Data_Parsed.sql" />
@@ -122,15 +124,25 @@
     <Build Include="zno2018\Tables\zno2018.Data_csv.sql" />
     <Build Include="zno2018\zno2018.sql" />
     <None Include="Scripts\Views\SchoolRating_Composite_3Y.sql" />
+    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable_Auto.sql" />
     <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.2018.sql" />
     <Build Include="dbo\Tables\Config_EONamesMergedTable.sql" />
     <None Include="Scripts\Views\Config_RenamedSchoolThatShouldBeMergedFrom.sql" />
     <Build Include="dbo\Tables\Schools_Composite.sql" />
     <None Include="Scripts\Tables\SchoolRating_Composite_3Y_Table.sql" />
-    <None Include="Scripts\Tables\SchoolRating_Composite_Table.sql" />
+    <None Include="Scripts\Tables\SchoolRating_Composite_2Y_Table.sql" />
     <Build Include="dbo\Tables\Schools.sql" />
     <None Include="Scripts\Views\Schools.sql" />
     <Build Include="dbo\Views\Schools_Merged.sql" />
+    <Build Include="zno2019\Tables\zno2019.Data_csv.sql" />
+    <Build Include="zno2019\zno2019.sql" />
+    <None Include="Scripts\import\fill_Data_Parsed.2019.sql" />
+    <None Include="Scripts\import\import.2019.sql" />
+    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.2019.sql" />
+    <None Include="Scripts\Views\FastestFallingTop20.sql" />
+    <None Include="Scripts\Views\FastestGrowingSchoolsTop20.sql" />
+    <Build Include="dbo\Views\SexTypeScores.sql" />
+    <None Include="Scripts\Views\SchoolsWithStudentsWith190AvgTop10.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="znodb.recreate.publish.xml" />
@@ -141,7 +153,7 @@
     <None Include="Scripts\import\fill_Schools.sql" />
     <None Include="Scripts\import\resolve_duplicated_schools.sql" />
     <None Include="Scripts\import\fill_helper_tables.sql" />
-    <None Include="Scripts\Views\SchoolRating_Composite.sql" />
+    <None Include="Scripts\Views\SchoolRating_Composite_2Y.sql" />
     <None Include="Data\OpenDataZNO2016.7z" />
     <None Include="Data\OpenDataZNO2017.7z" />
     <None Include="Data\7za.exe" />
@@ -149,6 +161,7 @@
     <None Include="znodb.update.publish.xml" />
     <None Include="Data\OpenDataZNO2018.7z" />
     <None Include="Scripts\Views\Config_RenamedSchoolThatCanBeMergedHint.sql" />
+    <None Include="Data\OpenDataZNO2019.7z" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
@@ -170,6 +183,7 @@
     <PostBuildEvent>"$(ProjectDir)Data\7za.exe" e -aos  -bd -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2016.7z"
 "$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2017.7z"
 "$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2018.7z"
+"$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2019.7z"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

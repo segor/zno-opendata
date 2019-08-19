@@ -28,3 +28,5 @@ GO
 GO
 :r Views\TerTypeScores.sql
 GO
+:r .\Views\SchoolsWithStudentsWith190AvgTop10.sql
+GO
