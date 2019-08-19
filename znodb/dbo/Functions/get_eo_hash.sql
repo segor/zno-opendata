@@ -10,7 +10,12 @@ BEGIN
 	RETURN CASE 
 		WHEN @EOName IS NOT NULL 
 		THEN HASHBYTES ('SHA1', 
-			LOWER(REPLACE(REPLACE(REPLACE(dbo.clean_EOName(@EOName) + @EORegName, N'-', N''), N'.', N''), N' ', N'' ))
+			LOWER(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(dbo.clean_EOName(@EOName) + @EORegName
+			, N'-', N'')
+			, N'.', N'')
+			, N' ', N'')
+			, N'«', N'')
+			, N'»', N''))
 		) 
 	END
 END
