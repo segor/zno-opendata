@@ -1,4 +1,5 @@
-﻿EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[SexTypeScores]')
+﻿-- input variables: ZnoYear
+EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[SexTypeScores]')
 GO
 
 

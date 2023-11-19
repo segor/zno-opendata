@@ -3,10 +3,11 @@
 	@EOName NVARCHAR(500)
 )
 RETURNS NVARCHAR(500)
+WITH INLINE = ON
 AS
 BEGIN
-	RETURN REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
-				@EOName
+	RETURN REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(
+				@EOName                
 				, N'  ', N' ') 				
 				, N'навчально - виховн', N'навчально-виховн') 				
 				, N'загальноосвітній навчально-виховний комплекс', N'ЗНВК')				
@@ -18,16 +19,19 @@ BEGIN
 				, N'заклад загальної середньої освіти', N'ЗЗСО')
 				, N'дошкільний навчальний заклад', N'ДНЗ')
 				, N'комунальний навчальний заклад', N'КНЗ')
+				, N'Комунальний заклад освіти', N'КЗО')
 				, N'комунальний заклад', N'КЗ')
 				, N'Комунальна установа', N'КУ')
 				, N'Приватне підприємство', N'ПП')
 				, N'ступенів', N'ст.')
+				, N'ступеня', N'ст.')
 				, N'районної державної адміністрації', N'РДА')
 				, N'державної районної адміністрації', N'ДРА')
 				, N'сільської ради', N'СР')				
 				, N'районної ради', N'РР')
-				, N'міської ради', N'МР')				
-				, N'обласної ради', N'ОР')				
+				, N'міської ради', N'МР')		
+				, N'обласної ради', N'ОР')	
+				, N'міста', N'м.')
 				, N'району', N'р.')
 				, N'області', N'об.')
 END

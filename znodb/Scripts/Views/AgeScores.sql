@@ -1,4 +1,6 @@
-﻿EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[AgeScores]')
+﻿-- input variables: ZnoYear
+
+EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[AgeScores]')
 GO
 
 CREATE VIEW [zno$(ZnoYear)].[AgeScores] AS

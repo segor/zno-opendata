@@ -1,4 +1,5 @@
-﻿EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[SchoolSubjScores]')
+﻿-- input variables: ZnoYear
+EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[SchoolSubjScores]')
 GO
 
 CREATE VIEW [zno$(ZnoYear)].[SchoolSubjScores]
@@ -6,6 +7,10 @@ AS
 SELECT 
 	A.[EOHash]
 	,[Examinees]
+	,[UmlAvg]
+	,[UmlStDev]
+	,[UmlMed]
+	,[UmlN]
 	,[UkrAvg]
 	,[UkrStDev]
 	,[UkrMed]
@@ -57,6 +62,9 @@ SELECT
 FROM
 	(SELECT EOHash
 	, COUNT(DISTINCT OutID) As Examinees
+	, AVG(Uml) AS UmlAvg
+	, STDEV(Uml) AS UmlStDev
+	, COUNT(Uml) AS UmlN
 	, AVG(Ukr) AS UkrAvg
 	, STDEV(Ukr) AS UkrStDev
 	, COUNT(Ukr) AS UkrN
@@ -97,6 +105,7 @@ FROM
 	GROUP BY EOHash) AS A
 INNER JOIN 
 	(SELECT DISTINCT EOHash
+		, PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY Uml) OVER (PARTITION BY EOHash) AS UmlMed
 		, PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY Ukr) OVER (PARTITION BY EOHash) AS UkrMed
 		, PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY Hist) OVER (PARTITION BY EOHash) AS HistMed
 		, PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY Math) OVER (PARTITION BY EOHash) AS MathMed

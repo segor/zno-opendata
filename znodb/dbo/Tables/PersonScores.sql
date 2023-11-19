@@ -4,6 +4,7 @@
     [SexTypeName] NVARCHAR (500) NULL,
     [Age]         INT            NULL,
     [EOHash]      VARBINARY (20) NOT NULL,
+    [Uml]         DECIMAL (4, 1) NULL,
     [Ukr]         DECIMAL (4, 1) NULL,
     [Hist]        DECIMAL (4, 1) NULL,
     [Math]        DECIMAL (4, 1) NULL,
@@ -28,13 +29,13 @@
 GO
 CREATE NONCLUSTERED INDEX [IX_EO]
     ON [dbo].[PersonScores]([EOHash] ASC)
-    INCLUDE([OutID], [Ukr], [Hist], [Math], [Phys], [Chem], [Bio], [Geo], [Eng], [Fr], [Deu], [Sp], [Rus]);
+    INCLUDE([OutID], [Uml], [Ukr], [Hist], [Math], [Phys], [Chem], [Bio], [Geo], [Eng], [Fr], [Deu], [Sp], [Rus]);
 
 
 GO
 CREATE NONCLUSTERED INDEX [IX_ID]
     ON [dbo].[PersonScores]([OutID] ASC)
-    INCLUDE([EOHash], [Ukr], [Hist], [Math], [Phys], [Chem], [Bio], [Geo], [Eng], [Fr], [Deu], [Sp], [Rus]);
+    INCLUDE([EOHash], [Uml], [Ukr], [Hist], [Math], [Phys], [Chem], [Bio], [Geo], [Eng], [Fr], [Deu], [Sp], [Rus]);
 
 
 GO

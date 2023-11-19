@@ -28,4 +28,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[IX_Config_EONamesMergingTable_EOHash]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="559b1b29-3a55-442a-b98a-0dbc9e5b81ba" ChangeDateTime="08/30/2020 12:47:03">
+    <Property Name="ElementName" Value="[dbo].[SchoolRating_History_Table]" />
+    <Property Name="ElementType" Value="SqlTable" />
+    <Property Name="ParentElementName" Value="[dbo]" />
+    <Property Name="ParentElementType" Value="SqlSchema" />
+    <Property Name="NewName" Value="[SchoolRating]" />
+  </Operation>
 </Operations>

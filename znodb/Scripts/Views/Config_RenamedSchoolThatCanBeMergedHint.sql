@@ -1,7 +1,13 @@
-﻿EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[Config_RenamedSchoolThatCanBeMergedHint]')
+﻿-- input variables: ZnoYear
+EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[Config_RenamedSchoolThatCanBeMergedHint]')
 GO
 
 CREATE VIEW [zno$(ZnoYear)].[Config_RenamedSchoolThatCanBeMergedHint] AS 
+WITH PrevZnoYearSchools AS (
+	SELECT *
+	FROM [dbo].[Schools] 
+	WHERE ZnoYear = ($(ZnoYear) - 1)
+)
 SELECT TOP 100000
 	 C.*
 	 ,Q.EOHash EOHash_Prev
@@ -11,14 +17,14 @@ SELECT TOP 100000
   FROM [zno$(ZnoYear)].[Config_RenamedSchoolThatShouldBeMergedTo] C
   inner join 
 	(SELECT S.* 
-	FROM [zno$(PrevZnoYear)].[Schools] S
+	FROM PrevZnoYearSchools S
 	inner join 
 		(SELECT COUNT ([EOHash]) N      
 			  ,[EORegName]
 			  ,[EOAreaName]
 			  ,[EOTerName]
       
-		  FROM [zno$(PrevZnoYear)].[Schools]
+		  FROM PrevZnoYearSchools
 		  group by
 			   [EORegName]
 			  ,[EOAreaName]

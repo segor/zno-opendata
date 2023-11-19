@@ -6,6 +6,7 @@ CREATE FUNCTION [dbo].[get_score]
 	@ball12 decimal(4,2) NULL = NULL
 )
 RETURNS decimal(4,1)
+WITH INLINE = ON
 AS
 BEGIN	
 	RETURN 	

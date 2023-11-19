@@ -13,7 +13,8 @@ FROM
    (SELECT *   FROM [dbo].[PersonScores]) p
 	UNPIVOT
 	   ([Score] FOR [Subj] IN 
-		  ([Ukr]
+		  ([Uml]
+		  ,[Ukr]
 		  ,[Hist]
 		  ,[Math]
 		  ,[Phys]

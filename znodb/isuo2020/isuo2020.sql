@@ -1,0 +1,1 @@
+﻿CREATE SCHEMA [isuo2020]

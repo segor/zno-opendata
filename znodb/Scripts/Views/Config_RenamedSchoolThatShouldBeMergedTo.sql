@@ -1,4 +1,5 @@
-﻿EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[Config_RenamedSchoolThatShouldBeMergedTo]')
+﻿-- input variables: ZnoYear
+EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[Config_RenamedSchoolThatShouldBeMergedTo]')
 GO
 
 CREATE VIEW [zno$(ZnoYear)].[Config_RenamedSchoolThatShouldBeMergedTo] AS 
@@ -21,6 +22,6 @@ SELECT TOP 1000000
 	 
 	) Q ON Q.[EOHash_Merge] = S.[EOHash_Merge]
 	INNER JOIN [zno$(ZnoYear)].SchoolRating R ON R.[EOHash_Merge] = S.[EOHash_Merge]
-	ORDER BY [Priority], S.EORegName, S.EOAreaName, S.EOTerName
+	ORDER BY S.EORegName, S.EOAreaName, S.EOTerName, S.[EOName]
 
 GO

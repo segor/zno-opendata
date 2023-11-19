@@ -4,8 +4,9 @@ CREATE FUNCTION [dbo].[clean_num]
 	@num NVARCHAR(500) NULL
 )
 RETURNS NVARCHAR(500)
+WITH INLINE = ON
 AS
 BEGIN
-	RETURN CASE WHEN @num <> 'null' THEN REPLACE(@num, N',', N'.') END
+	RETURN CASE WHEN @num <> 'null' THEN TRANSLATE(@num, ',', '.') END
 END
 

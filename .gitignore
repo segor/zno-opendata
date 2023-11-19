@@ -262,4 +262,5 @@ __pycache__/
 
 
 /znodb/Data/*.xls
+/znodb/Data/*.xlsx
 /znodb/Data/*.csv

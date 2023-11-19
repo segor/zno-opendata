@@ -8,10 +8,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{9b34aa00-064c-4e10-bda6-90b30e365caf}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>znodb</RootNamespace>
     <AssemblyName>znodb</AssemblyName>
     <ModelCollation>1049,CI</ModelCollation>
@@ -26,6 +25,7 @@
     <DefaultCollation>Cyrillic_General_CI_AS</DefaultCollation>
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
     <Recovery>SIMPLE</Recovery>
+    <AutoShrink>True</AutoShrink>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -53,7 +53,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -70,15 +69,26 @@
     <Folder Include="zno2017\Tables" />
     <Folder Include="zno2016\Tables" />
     <Folder Include="Scripts" />
-    <Folder Include="Scripts\import" />
     <Folder Include="Scripts\Views" />
-    <Folder Include="Scripts\Tables" />
     <Folder Include="Data" />
-    <Folder Include="Scripts\Config" />
     <Folder Include="zno2018" />
     <Folder Include="zno2018\Tables" />
     <Folder Include="zno2019" />
     <Folder Include="zno2019\Tables" />
+    <Folder Include="Utils" />
+    <Folder Include="Scripts\2016" />
+    <Folder Include="Scripts\2017" />
+    <Folder Include="Scripts\2018" />
+    <Folder Include="Scripts\2019" />
+    <Folder Include="zno2020" />
+    <Folder Include="zno2020\Tables" />
+    <Folder Include="Scripts\2020" />
+    <Folder Include="zno_LastYear" />
+    <Folder Include="isuo2020" />
+    <Folder Include="isuo2020\Tables" />
+    <Folder Include="zno2021" />
+    <Folder Include="zno2021\Tables" />
+    <Folder Include="Scripts\2021" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Data_Parsed.sql" />
@@ -95,7 +105,6 @@
     <Build Include="zno2016\zno2016.sql" />
     <Build Include="zno2016\Tables\zno2016.Data_csv.sql" />
     <Build Include="dbo\Views\Config_ValidExamStatuses.sql" />
-    <None Include="Scripts\import\import.2017.sql" />
     <None Include="Scripts\Views\AgeScores.sql" />
     <None Include="Scripts\Views\EOTypeScores.sql" />
     <None Include="Scripts\Views\PersonScores.sql" />
@@ -110,8 +119,6 @@
     <None Include="Scripts\Views\StudentRaitingTop1000.sql" />
     <None Include="Scripts\Views\SubjectSexTypeScores.sql" />
     <None Include="Scripts\Views\TerTypeScores.sql" />
-    <None Include="Scripts\import\fill_Data_Parsed.2016.sql" />
-    <None Include="Scripts\import\import.2016.sql" />
     <None Include="Scripts\Script.AlterDbFiles.sql" />
     <Build Include="dbo\Functions\clean_EOName.sql" />
     <Build Include="dbo\Tables\Config_EONamesMergingTable.sql" />
@@ -119,49 +126,81 @@
     <Build Include="dbo\Functions\wmAvg.sql" />
     <Build Include="dbo\Functions\canBeInSchoolRating.sql" />
     <Build Include="dbo\Functions\canBeInSubjectRating.sql" />
-    <None Include="Scripts\import\fill_Data_Parsed.2018.sql" />
-    <None Include="Scripts\import\import.2018.sql" />
     <Build Include="zno2018\Tables\zno2018.Data_csv.sql" />
     <Build Include="zno2018\zno2018.sql" />
     <None Include="Scripts\Views\SchoolRating_Composite_3Y.sql" />
-    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable_Auto.sql" />
-    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.2018.sql" />
     <Build Include="dbo\Tables\Config_EONamesMergedTable.sql" />
     <None Include="Scripts\Views\Config_RenamedSchoolThatShouldBeMergedFrom.sql" />
-    <Build Include="dbo\Tables\Schools_Composite.sql" />
-    <None Include="Scripts\Tables\SchoolRating_Composite_3Y_Table.sql" />
-    <None Include="Scripts\Tables\SchoolRating_Composite_2Y_Table.sql" />
     <Build Include="dbo\Tables\Schools.sql" />
     <None Include="Scripts\Views\Schools.sql" />
     <Build Include="dbo\Views\Schools_Merged.sql" />
     <Build Include="zno2019\Tables\zno2019.Data_csv.sql" />
     <Build Include="zno2019\zno2019.sql" />
-    <None Include="Scripts\import\fill_Data_Parsed.2019.sql" />
-    <None Include="Scripts\import\import.2019.sql" />
-    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.2019.sql" />
     <None Include="Scripts\Views\FastestFallingTop20.sql" />
     <None Include="Scripts\Views\FastestGrowingSchoolsTop20.sql" />
     <Build Include="dbo\Views\SexTypeScores.sql" />
     <None Include="Scripts\Views\SchoolsWithStudentsWith190AvgTop10.sql" />
+    <Build Include="dbo\Views\SchoolRating_Composite_3Y.sql" />
+    <None Include="Utils\Regression Test.sql" />
+    <None Include="Scripts\2016\Fill_Config_EONamesMergingTable.sql" />
+    <None Include="Scripts\2017\Fill_Config_EONamesMergingTable.sql" />
+    <None Include="Scripts\2018\Fill_Config_EONamesMergingTable.sql" />
+    <None Include="Scripts\2019\Fill_Config_EONamesMergingTable.sql" />
+    <None Include="Scripts\2016\fill_Data_Parsed.sql" />
+    <None Include="Scripts\2017\fill_Data_Parsed.sql" />
+    <None Include="Scripts\2016\import_csv.sql" />
+    <None Include="Scripts\2017\import_csv.sql" />
+    <None Include="Scripts\2018\fill_Data_Parsed.sql" />
+    <None Include="Scripts\2018\import_csv.sql" />
+    <None Include="Scripts\2019\fill_Data_Parsed.sql" />
+    <None Include="Scripts\2019\import_csv.sql" />
+    <None Include="Scripts\fill_helper_tables.sql" />
+    <None Include="Scripts\fill_PersonScores.sql" />
+    <None Include="Scripts\fill_Schools.sql" />
+    <None Include="Scripts\import.sql" />
+    <None Include="Scripts\import_csv.sql" />
+    <None Include="Scripts\resolve_duplicated_schools.sql" />
+    <Build Include="dbo\Tables\SchoolRatingShort.sql" />
+    <None Include="Scripts\fill_SchoolRatingShort_Table.sql" />
+    <Build Include="dbo\Views\SchoolRating.sql" />
+    <Build Include="dbo\Views\SchoolRating_WithActualSchoolInfo.sql" />
+    <Build Include="dbo\Views\Years.sql" />
+    <Build Include="dbo\Views\SchoolRating_YearlyHistory.sql" />
+    <Build Include="zno2020\Tables\zno2020.Data_csv.sql" />
+    <Build Include="zno2020\zno2020.sql" />
+    <None Include="Scripts\2020\Fill_Config_EONamesMergingTable.sql" />
+    <None Include="Scripts\2020\fill_Data_Parsed.sql" />
+    <None Include="Scripts\2020\import_csv.sql" />
+    <Build Include="dbo\Views\SchoolTypePercent.sql" />
+    <Build Include="zno_LastYear\zno_LastYear.sql" />
+    <Build Include="isuo2020\isuo2020.sql" />
+    <Build Include="isuo2020\Tables\Data_Parsed.sql" />
+    <None Include="Scripts\import_isuo_csv.sql" />
+    <None Include="Utils\widget.sql" />
+    <None Include="Scripts\Views\SchoolsWithRatingHistory.sql" />
+    <Build Include="zno2021\Tables\zno2021.Data_csv.sql" />
+    <Build Include="zno2021\zno2021.sql" />
+    <None Include="Scripts\2021\Fill_Config_EONamesMergingTable.sql" />
+    <None Include="Scripts\2021\fill_Data_Parsed.sql" />
+    <None Include="Scripts\2021\import_csv.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="znodb.recreate.publish.xml" />
     <None Include="Scripts\Script.CreateCommonStructure.sql" />
-    <None Include="Scripts\import\import_csv.sql" />
-    <None Include="Scripts\import\fill_PersonScores.sql" />
-    <None Include="Scripts\import\fill_Data_Parsed.2017.sql" />
-    <None Include="Scripts\import\fill_Schools.sql" />
-    <None Include="Scripts\import\resolve_duplicated_schools.sql" />
-    <None Include="Scripts\import\fill_helper_tables.sql" />
-    <None Include="Scripts\Views\SchoolRating_Composite_2Y.sql" />
     <None Include="Data\OpenDataZNO2016.7z" />
     <None Include="Data\OpenDataZNO2017.7z" />
     <None Include="Data\7za.exe" />
-    <None Include="Scripts\Config\Fill_Config_EONamesMergingTable.2017.sql" />
     <None Include="znodb.update.publish.xml" />
     <None Include="Data\OpenDataZNO2018.7z" />
     <None Include="Scripts\Views\Config_RenamedSchoolThatCanBeMergedHint.sql" />
     <None Include="Data\OpenDataZNO2019.7z" />
+    <None Include="Scripts\PrepareDataForTheYear.sql" />
+    <None Include="Data\OpenDataZNO2020.7z" />
+    <None Include="Scripts\CreateSynonymsForLastYearSchema.sql" />
+    <None Include="Data\schools_isuo.org.2020.csv.7z" />
+    <None Include="Scripts\fill_Schools_isuo.sql" />
+    <None Include="Scripts\View_isuo_Schools_Merged.sql" />
+    <None Include="Data\OpenDataZNO2021.7z" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
@@ -171,19 +210,12 @@
       <DefaultValue>$(MSBuildProjectDirectory)\Data</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="DO_NOT_IMPORT_CSV">
-      <DefaultValue>False</DefaultValue>
-      <Value>$(SqlCmdVar__2)</Value>
-    </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="znodb.refactorlog" />
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)Data\7za.exe" e -aos  -bd -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2016.7z"
-"$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2017.7z"
-"$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2018.7z"
-"$(ProjectDir)Data\7za.exe" e -aos -bd  -o"$(ProjectDir)Data\"  "$(ProjectDir)Data\OpenDataZNO2019.7z"
+    <PostBuildEvent>"$(ProjectDir)Data\7za.exe" e "$(ProjectDir)Data\*.7z" -o"$(ProjectDir)Data\" -aos -bd 
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

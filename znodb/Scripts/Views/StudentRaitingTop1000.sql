@@ -1,4 +1,5 @@
-﻿EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[StudentRaitingTop1000]')
+﻿-- input variables: ZnoYear
+EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[StudentRaitingTop1000]')
 GO
 
 CREATE view [zno$(ZnoYear)].[StudentRaitingTop1000] as 

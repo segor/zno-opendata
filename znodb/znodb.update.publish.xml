@@ -13,8 +13,5 @@
     <SqlCmdVariable Include="CsvFilesDir">
       <Value>$(ProjectDir)Data</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="DO_NOT_IMPORT_CSV">
-      <Value>True</Value>
-    </SqlCmdVariable>
   </ItemGroup>
 </Project>

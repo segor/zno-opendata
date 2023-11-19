@@ -1,4 +1,5 @@
-﻿EXEC ('DROP TABLE IF EXISTS [zno$(ZnoYear)].[SchoolScoresTotal]')
+﻿-- input variables: ZnoYear
+EXEC ('DROP TABLE IF EXISTS [zno$(ZnoYear)].[SchoolScoresTotal]')
 GO
 
 SELECT		  School.AvgScore
@@ -8,6 +9,10 @@ SELECT		  School.AvgScore
 			, School.StdDevScore
 			, [Subj].[EOHash]
 			, [Subj].[Examinees]
+			, [Subj].[UmlAvg]
+			, [Subj].[UmlStDev]
+			, [Subj].[UmlMed]
+			, [Subj].[UmlN]
 			, [Subj].[UkrAvg]
 			, [Subj].[UkrStDev]
 			, [Subj].[UkrMed]

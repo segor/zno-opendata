@@ -17,6 +17,14 @@
 		[ZnoYear] ASC
 		, [EOHash] ASC
 	)
+	/**
+	,
+    CONSTRAINT [AK_Schools_ZnoYear_EOHash_Merge] UNIQUE 
+	(
+		[ZnoYear]
+		, [EOHash_Merge]
+    )
+	**/
 )
 GO
 

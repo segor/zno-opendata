@@ -1,7 +1,8 @@
 ﻿PRINT N'Reserving space for database...'
 GO
 
-IF N'$(DO_NOT_IMPORT_CSV)' NOT LIKE N'True' BEGIN
+IF NOT EXISTS(SELECT 1 FROM [dbo].Data_Parsed)
+BEGIN
 ALTER DATABASE [$(DatabaseName)]
 MODIFY FILE
 ( NAME = N'$(DatabaseName)', SIZE = 6000MB, FILEGROWTH = 10% )

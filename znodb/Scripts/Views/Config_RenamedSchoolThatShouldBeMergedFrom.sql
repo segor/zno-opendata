@@ -1,4 +1,6 @@
-﻿EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[Config_RenamedSchoolThatShouldBeMergedFrom]')
+﻿-- input variables: ZnoYear
+
+EXEC ('DROP VIEW IF EXISTS [zno$(ZnoYear)].[Config_RenamedSchoolThatShouldBeMergedFrom]')
 GO
 
 CREATE VIEW [zno$(ZnoYear)].[Config_RenamedSchoolThatShouldBeMergedFrom] AS 
